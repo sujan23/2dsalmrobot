@@ -1,0 +1,11 @@
+<!--Simulation Mode SLAM Launch -->
+<launch>
+        <node name="crsm_slam_node" type="crsm_slam_node" pkg="crsm_slam" respawn="false" ns="crsm_slam" output="screen">
+	<param name="frame_id" type="string" value="base_scan"/>
+	</node>
+ 
+	<rosparam file="$(find crsm_slam)/config/crsm_slam/crsm_slam_parameters 2.yaml" command="load" ns="crsm_slam"/>
+<node pkg="tf" type="static_transform_publisher" name="map_nav_broadcaster2" args="0 0 0 0 0 0 1 map odom  100"/>
+
+
+</launch>
